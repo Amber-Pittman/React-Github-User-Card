@@ -2,6 +2,37 @@ import React from "react";
 // import ReactDOM from "react-dom";
 import axios from "axios";
 import Followers from "./Components/Followers";
+import Styled from "styled-components";
+
+
+const StyledH1 = Styled("h1")`
+  font-size: 3.6em;
+  display: flex;
+  margin: 1em 28%;
+  // width: 0 auto;
+`;
+
+const StyledCardInfo = Styled("div")`
+  // border: 2px solid red;
+  display: inline-block;
+  margin: 1em 33% 1.5em;
+  background-color: MediumSeaGreen;
+  border-radius: 25px;
+`;
+
+const StyledImg = Styled("img")`
+  border-radius: 25px;
+`;
+
+const StyledH3 = Styled("h3")`
+  font-size: 2.4em;
+  padding-left: 1em;
+`;
+
+const StyledP = Styled("p")`
+  font-size: 1.2em;
+  padding-left: 1em;
+`;
 
 class App extends React.Component {
     constructor() {
@@ -43,22 +74,22 @@ class App extends React.Component {
     render() {
         return (
             <div class="card">
-              <h1>GitHub Profile Card</h1>
-              <div class="card-info">
-                <img src={this.state.avatar} 
+              <StyledH1>GitHub Profile Card</StyledH1>
+              <StyledCardInfo class="card-info">
+                <StyledImg src={this.state.avatar} 
                      data-pin-nopin="true" 
                      alt="user's github profile avatar" />
-                  <h3 class="name">{this.state.name}</h3>
-                  <p class="username">{this.state.username}</p>
-                  <p>Location: {this.state.location || "Not Available"}</p>
+                  <StyledH3 class="name">{this.state.name}</StyledH3>
+                  <StyledP class="username">{this.state.username}</StyledP>
+                  <StyledP>Location: {this.state.location || "Not Available"}</StyledP>
                   {/* <p>Profile:  
                   <a href={address to users github page}>{address to users github page}</a>
                   </p>  */}
-                  <p>Followers: {this.state.followers}</p>
-                  <p>Following: {this.state.following}</p>
-                  <p>Bio: {this.state.bio}</p>
-              </div>
-              <h3> {this.state.name}'s Followers</h3>
+                  <StyledP>Followers: {this.state.followers}</StyledP>
+                  <StyledP>Following: {this.state.following}</StyledP>
+                  <StyledP>Bio: {this.state.bio}</StyledP>
+              </StyledCardInfo>
+              <StyledH3> {this.state.name}'s Followers</StyledH3>
               <Followers />
             </div>
         )
