@@ -73,14 +73,14 @@ class App extends React.Component {
     
     render() {
         return (
-            <div class="card">
+            <div className="card">
               <StyledH1>GitHub Profile Card</StyledH1>
-              <StyledCardInfo class="card-info">
+              <StyledCardInfo className="card-info">
                 <StyledImg src={this.state.avatar} 
                      data-pin-nopin="true" 
                      alt="user's github profile avatar" />
-                  <StyledH3 class="name">{this.state.name}</StyledH3>
-                  <StyledP class="username">{this.state.username}</StyledP>
+                  <StyledH3 className="name">{this.state.name}</StyledH3>
+                  <StyledP className="username">{this.state.username}</StyledP>
                   <StyledP>Location: {this.state.location || "Not Available"}</StyledP>
                   {/* <p>Profile:  
                   <a href={address to users github page}>{address to users github page}</a>
