@@ -52,6 +52,7 @@ class App extends React.Component {
       this.fetchUserInfo() //fetch data for the default state value
     }
   
+    // For reference, here's the GH API info: https://developer.github.com/v3/users/
     fetchUserInfo = () => {
         axios.get(`https://api.github.com/users/Amber-Pittman`) // gets my personal card information
         .then(response => {
