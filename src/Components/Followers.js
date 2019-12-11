@@ -16,19 +16,14 @@ class Followers extends React.Component {
     componentDidMount() {
       this.fetchFollowerInfo() //fetch data for the default state value
     }
-  
+
+      
     fetchFollowerInfo = () => {
         axios.get(`https://api.github.com/users/Amber-Pittman/followers`) // gets my followers information
         .then(result => {
           
           this.setState({
             follower: result.data
-            // avatar: result.data.avatar_url,
-            // name: result.data.name,
-            // followers: result.data.followers,
-            // following: result.data.following,
-            // location: result.data.location,
-            // bio: result.data.bio
           })
         })
         .catch(error => {
@@ -40,7 +35,7 @@ class Followers extends React.Component {
       render() {
         return (
             <div>
-                {this.state.follower.map((item, index)=> (
+                {this.state.follower.map((item, index) => (
                     <FollowerData item={item} key={index} />
                 ))}
             </div>

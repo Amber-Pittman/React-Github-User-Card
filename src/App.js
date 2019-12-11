@@ -42,9 +42,10 @@ class App extends React.Component {
             //set initial default state values
             avatar: "",
             name: "", // remember not to hardcode information here
-            username: "",
             followers: "",
-            location: ""
+            following: "",
+            location: "",
+            bio: ""
         }
     }
 
@@ -52,6 +53,7 @@ class App extends React.Component {
       this.fetchUserInfo() //fetch data for the default state value
     }
   
+    // For reference, here's the GH API info: https://developer.github.com/v3/users/
     fetchUserInfo = () => {
         axios.get(`https://api.github.com/users/Amber-Pittman`) // gets my personal card information
         .then(response => {
@@ -59,8 +61,8 @@ class App extends React.Component {
           this.setState({
               avatar: response.data.avatar_url,
               name: response.data.name,
-              followers: response.data.followers,
-              following: response.data.following,
+              followerNumber: response.data.followers,
+              followingNumber: response.data.following,
               location: response.data.location,
               bio: response.data.bio
           })
@@ -73,21 +75,21 @@ class App extends React.Component {
     
     render() {
         return (
-            <div class="card">
+            <div className="card">
               <StyledH1>GitHub Profile Card</StyledH1>
-              <StyledCardInfo class="card-info">
+              <StyledCardInfo className="card-info">
                 <StyledImg src={this.state.avatar} 
-                     data-pin-nopin="true" 
-                     alt="user's github profile avatar" />
-                  <StyledH3 class="name">{this.state.name}</StyledH3>
-                  <StyledP class="username">{this.state.username}</StyledP>
-                  <StyledP>Location: {this.state.location || "Not Available"}</StyledP>
-                  {/* <p>Profile:  
-                  <a href={address to users github page}>{address to users github page}</a>
-                  </p>  */}
-                  <StyledP>Followers: {this.state.followers}</StyledP>
-                  <StyledP>Following: {this.state.following}</StyledP>
-                  <StyledP>Bio: {this.state.bio}</StyledP>
+                           data-pin-nopin="true" 
+                           alt="user's github profile avatar" />
+                <StyledH3 className="name">{this.state.name}</StyledH3>
+                <StyledP className="username">{this.state.username}</StyledP>
+                <StyledP>Location: {this.state.location || "Not Available"}</StyledP>
+                {/* <p>Profile:  
+                <a href={address to users github page}>{address to users github page}</a>
+                </p>  */}
+                <StyledP>Followers: {this.state.followerNumber}</StyledP>
+                <StyledP>Following: {this.state.followingNumber}</StyledP>
+                <StyledP>Bio: {this.state.bio}</StyledP>
               </StyledCardInfo>
               <StyledH3> {this.state.name}'s Followers</StyledH3>
               <Followers />
