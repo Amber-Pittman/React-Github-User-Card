@@ -8,25 +8,38 @@ import Styled from "styled-components";
 const StyledH1 = Styled("h1")`
   font-size: 3.6em;
   display: flex;
-  margin: 1em 28%;
-  // width: 0 auto;
+  justify-content: center;
+  padding: 1%;
+  margin: 0 auto;
+  width: 40%;
 `;
 
 const StyledCardInfo = Styled("div")`
-  // border: 2px solid red;
+  border: 2px solid DarkGrey;
   display: inline-block;
-  margin: 1em 33% 1.5em;
-  background-color: MediumSeaGreen;
+  margin: 1em 38% 1.5em;
+  background-color: #eeedff;
   border-radius: 25px;
 `;
 
 const StyledImg = Styled("img")`
   border-radius: 25px;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+`;
+
+const StyledH2 = Styled("h2")`
+  font-size: 2.4em;
+  display: flex;
+  justify-content: center;
+  text-transform: capitalize;
 `;
 
 const StyledH3 = Styled("h3")`
-  font-size: 2.4em;
-  padding-left: 1em;
+  font-size: 2em;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
 `;
 
 const StyledP = Styled("p")`
@@ -81,7 +94,7 @@ class App extends React.Component {
                 <StyledImg src={this.state.avatar} 
                            data-pin-nopin="true" 
                            alt="user's github profile avatar" />
-                <StyledH3 className="name">{this.state.name}</StyledH3>
+                <StyledH2 className="name">{this.state.name}</StyledH2>
                 <StyledP className="username">{this.state.username}</StyledP>
                 <StyledP>Location: {this.state.location || "Not Available"}</StyledP>
                 {/* <p>Profile:  
