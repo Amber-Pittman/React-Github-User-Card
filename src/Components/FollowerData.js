@@ -5,7 +5,7 @@ function FollowerData(props) {
         <div>
         <img src={props.item.avatar_url} 
              data-pin-nopin="true"
-             alt="Follower User Profile Image on Github"/>
+             alt="Follower User Profile Head Shot on Github"/>
         <h3> {props.item.login} </h3>
     </div>
     )    
